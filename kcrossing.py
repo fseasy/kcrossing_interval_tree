@@ -185,3 +185,13 @@ def get_kcrossing_vertices_set(arc_set_list , adj_list) :
         kvertices = get_kcrossing_vertices_of_one_crossing_interval(arc_set , adj_list)
         kvertices_set.append(kvertices)
     return kvertices_set
+
+def _is_n_crossing_interval_tree(kvertices_set_list , n) :
+    max_k = 0 
+    for kvertices_set in kvertices_set_list :
+        max_k = max( max_k , len(kvertices_set))
+    return max_k <= n
+
+def _is_2_crossing_interval_tree(kvertices_set_list) :
+    return _is_n_crossing_interval_tree(kvertices_set_list , 2)
+
